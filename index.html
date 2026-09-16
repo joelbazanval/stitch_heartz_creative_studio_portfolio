@@ -9,7 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
   @layer base {
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
     }
@@ -19,8 +20,8 @@
         "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background-color: #FFFFFF;
-      color: #1D1D1F;
+      background-color: #ffffff;
+      color: #1d1d1f;
     }
   }
 
@@ -28,6 +29,9 @@
     display: none;
   }
 
+  /* ================================
+     SERVICES CAROUSEL
+  ================================= */
 
   #services-carousel {
     position: relative;
@@ -64,9 +68,9 @@
     border-radius: 9999px;
 
     background: rgba(255, 255, 255, 0.92);
-    border: 1px solid #E5E5EA;
+    border: 1px solid #e5e5ea;
 
-    color: #1D1D1F;
+    color: #1d1d1f;
 
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 
@@ -80,7 +84,7 @@
   }
 
   .services-arrow:hover {
-    background: #1D1D1F;
+    background: #1d1d1f;
     color: white;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
@@ -111,13 +115,6 @@
       right: 10px;
     }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .services-track {
-      transform: none !important;
-    }
-  }
-
 </style>
 
 
@@ -149,7 +146,35 @@
 </head>
 
 
+<!-- VIDEO MODAL -->
+<div
+  id="video-modal"
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 sm:p-8"
+>
+  <div
+    id="video-modal-content"
+    class="relative w-full max-w-5xl aspect-video bg-black rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl"
+  >
+    <button
+      id="video-modal-close"
+      type="button"
+      aria-label="Cerrar video"
+      class="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+    >
+      <span class="material-symbols-outlined">close</span>
+    </button>
 
+    <iframe
+      id="video-iframe"
+      class="w-full h-full"
+      src=""
+      title="Video HEARTZ"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
 
 <body class="bg-white text-[#1D1D1F] selection:bg-[#1D1D1F] selection:text-white antialiased">
 <!-- ==================== 1. MINIMAL APPLE HEADER ==================== -->
@@ -212,14 +237,467 @@
 </div>
 <!-- Pristine Apple Hero Frame with Visual -->
 <div class="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F5F5F7] border border-[#E5E5EA] shadow-xl group">
-<img alt="HEARTZ Studio Film Still" class="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida/AEtjO1VVG210yexF27HwypTdi5oQ71-bNDtKreZk4vEmqlaj_zEt_QbOmi8CsDGF1oJw_1JLy_tvhiOusLbvt72rRDUVGC5jQ40EPFBZfIR3SIS36xfbJHlR5aPUGh0DKxYOEtI-zO1TzK-Np7d8UiiyetiZkNFqT8rZk7zQrHZq58qcFUYQHpQntFGCqwZmwROZ4acfMr5voLAqIqxP3yL0j69Q_QOnZky0fqdvD0j_PoN4hXw3vbhXw7s-7Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
-<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-white flex items-center gap-3">
-<span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-mono border border-white/25">CINEMA LAB 2025</span>
-<span class="text-sm font-medium tracking-tight text-white/90">Directorial Showreel / Master 4K</span>
-</div>
+
+  <img
+    alt="HEARTZ Studio Film Still"
+    class="w-full h-full object-cover object-center grayscale contrast-125 brightness-90 saturate-0 transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
+    src="./vid1.gif"
+  />
+
+  <!-- Degradado cinematográfico -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent"></div>
+
+  <!-- Grano sutil -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.12] mix-blend-overlay"
+    style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 180 180%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%22.7%22/%3E%3C/svg%3E');"
+  ></div>
+
+  <div class="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-white flex items-center gap-3">
+    <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-mono border border-white/25">
+      CINEMA LAB 2025
+    </span>
+
+    <span class="text-sm font-medium tracking-tight text-white/90">
+      Directorial Showreel / Master 4K
+    </span>
+  </div>
+
 </div>
 </section>
+
+<!-- ==================== 4. SERVICIOS ==================== -->
+<section
+  class="py-20 md:py-28 border-t border-[#E5E5EA] overflow-hidden"
+  id="servicios"
+>
+
+  <!-- Título -->
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 mb-12 md:mb-16">
+    <div class="flex items-baseline justify-between">
+      <div>
+        <span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-1">
+          01 / SERVICIOS
+        </span>
+
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+          Lo que hacemos
+        </h2>
+      </div>
+
+      <span class="text-xs font-mono tracking-widest text-[#86868B] uppercase hidden sm:block">
+        PRODUCCIÓN · CONTENIDO · FILMS
+      </span>
+    </div>
+  </div>
+
+
+  <!-- CARRUSEL -->
+<div id="services-carousel">
+
+  <!-- Flecha izquierda -->
+  <button
+    id="services-prev"
+    class="services-arrow left"
+    aria-label="Servicio anterior"
+  >
+    <span class="material-symbols-outlined">
+      arrow_back
+    </span>
+  </button>
+
+  <!-- Flecha derecha -->
+  <button
+    id="services-next"
+    class="services-arrow right"
+    aria-label="Siguiente servicio"
+  >
+    <span class="material-symbols-outlined">
+      arrow_forward
+    </span>
+  </button>
+
+  <div class="services-track pb-6">
+<!-- ================= TARJETA 1 ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        01
+      </span>
+
+      <span class="text-xs font-mono text-[#86868B]">
+        CONTENT
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Creación de contenido
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Contenido visual para marcas que buscan constancia,
+        creatividad y una identidad propia.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="contenido.jpeg"
+        alt="Creación de contenido"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        REELS · FOTOGRAFÍA · SOCIAL MEDIA
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================= TARJETA 2 ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        02
+      </span>
+
+      <span class="text-xs font-mono text-[#86868B]">
+        PRODUCTION
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Producción audiovisual
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Desarrollamos producciones audiovisuales desde la idea hasta la entrega final.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="./c1.jpeg"
+        alt="Producción audiovisual"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        SPOTS · CAMPAÑAS · INSTITUCIONALES
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= TARJETA 3 ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        03
+      </span>
+      <span class="text-xs font-mono text-[#86868B]">
+        MUSIC VIDEO
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Videoclips
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Concepto, dirección y producción visual para artistas y proyectos musicales.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="videoclip.jpeg"
+        alt="Videoclips"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        CONCEPTO · DIRECCIÓN · VIDEO
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= TARJETA 4 ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">04</span>
+      <span class="text-xs font-mono text-[#86868B]">PRODUCTION</span>
+    </div>
+
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Producción integral
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Nos encargamos de convertir una idea en una producción visual completa.
+      </p>
+    </div>
+
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="vid6.jpeg"
+        alt="Producción integral"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        PREPRODUCCIÓN · RODAJE · POST
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+      <!-- ================================================= -->
+      <!-- DUPLICADO: NECESARIO PARA EL LOOP INFINITO -->
+      <!-- ================================================= -->
+
+<!-- ================= TARJETA 1 DUPLICADA ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        01
+      </span>
+
+      <span class="text-xs font-mono text-[#86868B]">
+        CONTENT
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Creación de contenido
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Contenido visual para marcas que buscan constancia,
+        creatividad y una identidad propia.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="contenido.jpeg"
+        alt="Creación de contenido"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        REELS · FOTOGRAFÍA · SOCIAL MEDIA
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= TARJETA 2 DUPLICADA ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        02
+      </span>
+
+      <span class="text-xs font-mono text-[#86868B]">
+        PRODUCTION
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Producción audiovisual
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Desarrollamos producciones audiovisuales desde la idea hasta la entrega final.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="./c1.jpeg"
+        alt="Producción audiovisual"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        SPOTS · CAMPAÑAS · INSTITUCIONALES
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================= TARJETA 3 DUPLICADA ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        03
+      </span>
+
+      <span class="text-xs font-mono text-[#86868B]">
+        MUSIC VIDEO
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Videoclips
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Concepto, dirección y producción visual para artistas y proyectos musicales.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="videoclip.jpeg"
+        alt="Videoclips"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        CONCEPTO · DIRECCIÓN · VIDEO
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================= TARJETA 4 DUPLICADA ================= -->
+<div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+  <div class="h-[500px] sm:h-[540px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-5 sm:p-6 flex flex-col overflow-hidden">
+
+    <!-- CABECERA -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <span class="text-xs font-mono text-[#86868B]">
+        04
+      </span>
+
+      <span class="text-xs font-mono text-[#86868B]">
+        PRODUCTION
+      </span>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="px-1 mb-5">
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        Producción integral
+      </h3>
+
+      <p class="mt-2 text-sm text-[#86868B] leading-relaxed max-w-md">
+        Nos encargamos de convertir una idea en una producción visual completa.
+      </p>
+    </div>
+
+    <!-- IMAGEN PROTAGÓNICA -->
+    <div class="relative flex-1 min-h-0 rounded-2xl overflow-hidden">
+      <img
+        src="vid6.jpeg"
+        alt="Producción integral"
+        class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+      />
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="pt-4 px-1">
+      <div class="h-px bg-[#E5E5EA] mb-3"></div>
+
+      <p class="text-[10px] sm:text-xs font-mono text-[#86868B]">
+        PREPRODUCCIÓN · RODAJE · POST
+      </p>
+    </div>
+
+  </div>
+</div>
+  </div>
+
+</section>
+
+
 <!-- ==================== 3. SELECTED PROJECTS ==================== -->
 <section class="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-[#E5E5EA]" id="proyectos">
 <!-- Section Intro -->
@@ -239,8 +717,13 @@
 <!-- Project 1: Camila -->
 <div class="lg:col-span-7 group cursor-pointer">
 <div class="relative aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] mb-4 transition-all duration-300 group-hover:shadow-lg">
-<img alt="Camila - Moda &amp; Campaña Editorial" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VVG210yexF27HwypTdi5oQ71-bNDtKreZk4vEmqlaj_zEt_QbOmi8CsDGF1oJw_1JLy_tvhiOusLbvt72rRDUVGC5jQ40EPFBZfIR3SIS36xfbJHlR5aPUGh0DKxYOEtI-zO1TzK-Np7d8UiiyetiZkNFqT8rZk7zQrHZq58qcFUYQHpQntFGCqwZmwROZ4acfMr5voLAqIqxP3yL0j69Q_QOnZky0fqdvD0j_PoN4hXw3vbhXw7s-7Q"/>
-<div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
+<img
+  alt="Camila - Moda & Campaña Editorial"
+  class="project-video-trigger w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 cursor-pointer"
+  src="./v4.jpeg"
+  data-video="Excn0Q9BOaE"
+/>
+/><div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
           00:45 · 4K SCOPE
         </div>
 <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -251,8 +734,8 @@
 </div>
 <div class="flex items-baseline justify-between px-1">
 <div>
-<h3 class="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-black">Camila</h3>
-<p class="text-xs text-[#86868B] font-medium tracking-wide mt-0.5">Moda &amp; Campaña Editorial</p>
+<h3 class="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-black">TWICE MÚSICA - No Hay Nadie Como Tú</h3>
+<p class="text-xs text-[#86868B] font-medium tracking-wide mt-0.5">Producción &amp; grabación</p>
 </div>
 <span class="text-xs font-mono text-[#86868B]">2025</span>
 </div>
@@ -260,8 +743,13 @@
 <!-- Project 2: Hector Lazo -->
 <div class="lg:col-span-5 group cursor-pointer">
 <div class="relative aspect-[4/5] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] mb-4 transition-all duration-300 group-hover:shadow-lg">
-<img alt="Hector Lazo - Streetwear Drop" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1Wea168Yaz5uynwfyQBzDa7hvhbQXO6lbBzY3XrLg31QOvkeA20-s8L9UiJrfxprSQTts-BJSpW9SVZjfQLC0ldeHn8Z9oE2RHfvuQErfFkpNc2BjYDxCKM3p4CnhQWuDo65gAR7vTDswAbb_Vuwy10MuUDl79Jcf57wHFoTRBVT7f8HWCm7UH0-FDOANG3zKjdU_rwSekLLxBvs6EqT3bBH-F1m-m7TvliTLAaE1S83dSJ4zoSJfaIPyM"/>
-<div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
+<img
+  alt="Hector Lazo - Streetwear Drop"
+  class="project-video-trigger w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 cursor-pointer"
+  src="./vi3.jpeg"
+  data-video="oaB_kyaDjPI"
+/>
+/><div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
           DROP 01 · 9:16 VERTICAL
         </div>
 <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -321,372 +809,11 @@
 </div>
 </div>
 </div>
-</section>
-<!-- ==================== 4. SERVICIOS ==================== -->
-<!-- ==================== 4. SERVICIOS ==================== -->
-<section
-  class="py-20 md:py-28 border-t border-[#E5E5EA] overflow-hidden"
-  id="servicios"
->
 
-  <!-- Título -->
-  <div class="max-w-[1440px] mx-auto px-6 md:px-12 mb-12 md:mb-16">
-    <div class="flex items-baseline justify-between">
-      <div>
-        <span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-1">
-          02 / SERVICIOS
-        </span>
-
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-          Lo que hacemos
-        </h2>
-      </div>
-
-      <span class="text-xs font-mono tracking-widest text-[#86868B] uppercase hidden sm:block">
-        PRODUCCIÓN · CONTENIDO · FILMS
-      </span>
-    </div>
-  </div>
-
-
-  <!-- CARRUSEL -->
-<div id="services-carousel">
-
-  <!-- Flecha izquierda -->
-  <button
-    id="services-prev"
-    class="services-arrow left"
-    aria-label="Servicio anterior"
-  >
-    <span class="material-symbols-outlined">
-      arrow_back
-    </span>
-  </button>
-
-  <!-- Flecha derecha -->
-  <button
-    id="services-next"
-    class="services-arrow right"
-    aria-label="Siguiente servicio"
-  >
-    <span class="material-symbols-outlined">
-      arrow_forward
-    </span>
-  </button>
-
-  <div class="services-track pb-6">
-
-      <!-- ================= TARJETA 1 ================= -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-[#86868B]">
-                01
-              </span>
-
-              <span class="text-xs font-mono text-[#86868B]">
-                CONTENT
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-              Creación de contenido
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
-              Contenido visual para marcas que buscan constancia,
-              creatividad y una identidad propia.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-[#E5E5EA] mb-5"></div>
-
-            <p class="text-xs font-mono text-[#86868B]">
-              REELS · FOTOGRAFÍA · SOCIAL MEDIA
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- ================= TARJETA 2 ================= -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#1D1D1F] border border-[#1D1D1F] p-7 sm:p-9 flex flex-col justify-between text-white">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-white/50">
-                02
-              </span>
-
-              <span class="text-xs font-mono text-white/50">
-                FILM
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
-              Producción audiovisual
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-white/60 leading-relaxed max-w-sm">
-              Desarrollamos producciones audiovisuales desde la idea
-              hasta la entrega final.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-white/15 mb-5"></div>
-
-            <p class="text-xs font-mono text-white/50">
-              SPOTS · CAMPAÑAS · INSTITUCIONALES
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- ================= TARJETA 3 ================= -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-[#86868B]">
-                03
-              </span>
-
-              <span class="text-xs font-mono text-[#86868B]">
-                MUSIC
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-              Videoclips
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
-              Concepto, dirección y producción visual para artistas
-              y proyectos musicales.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-[#E5E5EA] mb-5"></div>
-
-            <p class="text-xs font-mono text-[#86868B]">
-              CONCEPTO · DIRECCIÓN · VIDEO
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- ================= TARJETA 4 ================= -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-[#86868B]">
-                04
-              </span>
-
-              <span class="text-xs font-mono text-[#86868B]">
-                PRODUCTION
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-              Producción integral
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
-              Nos encargamos de convertir una idea en una producción
-              visual completa.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-[#E5E5EA] mb-5"></div>
-
-            <p class="text-xs font-mono text-[#86868B]">
-              PREPRODUCCIÓN · RODAJE · POST
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- ================================================= -->
-      <!-- DUPLICADO: NECESARIO PARA EL LOOP INFINITO -->
-      <!-- ================================================= -->
-
-      <!-- TARJETA 1 DUPLICADA -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-[#86868B]">
-                01
-              </span>
-
-              <span class="text-xs font-mono text-[#86868B]">
-                CONTENT
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-              Creación de contenido
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
-              Contenido visual para marcas que buscan constancia,
-              creatividad y una identidad propia.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-[#E5E5EA] mb-5"></div>
-
-            <p class="text-xs font-mono text-[#86868B]">
-              REELS · FOTOGRAFÍA · SOCIAL MEDIA
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- TARJETA 2 DUPLICADA -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#1D1D1F] border border-[#1D1D1F] p-7 sm:p-9 flex flex-col justify-between text-white">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-white/50">
-                02
-              </span>
-
-              <span class="text-xs font-mono text-white/50">
-                FILM
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
-              Producción audiovisual
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-white/60 leading-relaxed max-w-sm">
-              Desarrollamos producciones audiovisuales desde la idea
-              hasta la entrega final.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-white/15 mb-5"></div>
-
-            <p class="text-xs font-mono text-white/50">
-              SPOTS · CAMPAÑAS · INSTITUCIONALES
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- TARJETA 3 DUPLICADA -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-[#86868B]">
-                03
-              </span>
-
-              <span class="text-xs font-mono text-[#86868B]">
-                MUSIC
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-              Videoclips
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
-              Concepto, dirección y producción visual para artistas
-              y proyectos musicales.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-[#E5E5EA] mb-5"></div>
-
-            <p class="text-xs font-mono text-[#86868B]">
-              CONCEPTO · DIRECCIÓN · VIDEO
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- TARJETA 4 DUPLICADA -->
-      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
-
-        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
-
-          <div>
-            <div class="flex items-center justify-between mb-8">
-              <span class="text-xs font-mono text-[#86868B]">
-                04
-              </span>
-
-              <span class="text-xs font-mono text-[#86868B]">
-                PRODUCTION
-              </span>
-            </div>
-
-            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
-              Producción integral
-            </h3>
-
-            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
-              Nos encargamos de convertir una idea en una producción
-              visual completa.
-            </p>
-          </div>
-
-          <div>
-            <div class="h-px bg-[#E5E5EA] mb-5"></div>
-
-            <p class="text-xs font-mono text-[#86868B]">
-              PREPRODUCCIÓN · RODAJE · POST
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
 
 </section>
+
+
 <!-- ==================== 5. PROCESO ==================== -->
 <section class="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-[#E5E5EA]" id="proceso">
 <div class="flex items-baseline justify-between mb-14">
@@ -779,7 +906,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ============================================================
   */
 
-  const AUTO_SPEED = 0.12;
+  const AUTO_SPEED = 0.05;
   const RESUME_DELAY = 3000;
 
   let position = 0;
@@ -949,7 +1076,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+const videoModal = document.getElementById("video-modal");
+const videoIframe = document.getElementById("video-iframe");
+const videoModalClose = document.getElementById("video-modal-close");
+const videoModalContent = document.getElementById("video-modal-content");
 
+document.querySelectorAll(".project-video-trigger").forEach((image) => {
+  image.addEventListener("click", () => {
+    const videoId = image.dataset.video;
+
+    videoIframe.src =
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+    videoModal.classList.remove("hidden");
+    videoModal.classList.add("flex");
+
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeVideo() {
+  videoModal.classList.add("hidden");
+  videoModal.classList.remove("flex");
+
+  videoIframe.src = "";
+
+  document.body.style.overflow = "";
+}
+
+videoModalClose.addEventListener("click", closeVideo);
+
+videoModal.addEventListener("click", (event) => {
+  if (!videoModalContent.contains(event.target)) {
+    closeVideo();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    !videoModal.classList.contains("hidden")
+  ) {
+    closeVideo();
+  }
+});
   /*
   ============================================================
   DRAG CON MOUSE
