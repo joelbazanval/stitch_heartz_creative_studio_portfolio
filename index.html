@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #FFFFFF;
+        color: #1D1D1F;
+      }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "apple-black": "#1D1D1F",
+            "apple-grey": "#86868B",
+            "apple-light": "#F5F5F7",
+            "apple-border": "#E5E5EA",
+            "apple-subtle": "#FBFBFD",
+            "accent-red": "#FF2E4D"
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Inter"', '"Helvetica Neue"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-white text-[#1D1D1F] selection:bg-[#1D1D1F] selection:text-white antialiased">
+<!-- ==================== 1. MINIMAL APPLE HEADER ==================== -->
+<header class="sticky top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#E5E5EA]/70 transition-all duration-300">
+<div class="max-w-[1440px] mx-auto h-16 px-6 md:px-12 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="flex items-center justify-center">
+<svg class="h-6 w-auto" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 5.5C12.5 1.5 6 4 6 10.5C6 17.5 16 25 16 25C16 25 26 17.5 26 10.5C26 4 19.5 1.5 16 5.5Z" fill="#1D1D1F"></path>
+<circle cx="16" cy="12.5" fill="#FFFFFF" r="3.2"></circle>
+<circle cx="25" cy="8" fill="#FF2E4D" r="2"></circle>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-[17px] font-bold tracking-tight text-[#1D1D1F] leading-none uppercase">HEARTZ</span>
+<span class="text-[8px] font-mono font-medium text-[#86868B] tracking-wider leading-none mt-1">STUDIO · FILMS</span>
+</div>
+</a>
+<!-- Minimal Nav -->
+<nav class="hidden md:flex items-center gap-8 text-[13px] font-medium text-[#86868B]">
+<a class="hover:text-[#1D1D1F] transition-colors" href="#proyectos">Proyectos</a>
+<a class="hover:text-[#1D1D1F] transition-colors" href="#servicios">Servicios</a>
+<a class="hover:text-[#1D1D1F] transition-colors" href="#proceso">Proceso</a>
+<a class="hover:text-[#1D1D1F] transition-colors" href="#contacto">Contacto</a>
+</nav>
+<!-- Live REC Tag & CTA -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-2 text-[11px] font-mono tracking-tight text-[#86868B] bg-[#F5F5F7] px-3 py-1 rounded-full border border-[#E5E5EA]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF2E4D] animate-pulse"></span>
+<span>REC 24FPS</span>
+</div>
+<a class="text-xs font-medium px-5 py-2 bg-[#1D1D1F] text-white hover:bg-black transition-all duration-200 rounded-full shadow-sm hover:shadow active:scale-95" href="#contacto">
+          Hablemos
+        </a>
+</div>
+</div>
+</header>
+<!-- ==================== 2. HERO SECTION ==================== -->
+<section class="relative pt-16 md:pt-24 pb-16 md:pb-24 px-6 md:px-12 max-w-[1440px] mx-auto overflow-hidden">
+<div class="flex flex-col items-start mb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F5F7] border border-[#E5E5EA] text-[#86868B] font-mono text-[11px] tracking-wider uppercase mb-6">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF2E4D]"></span>
+<span>STUDIO &amp; BOUTIQUE FILM PRODUCTION</span>
+</div>
+<h1 class="text-6xl sm:text-7xl lg:text-[104px] font-bold text-[#1D1D1F] tracking-[-0.035em] leading-[0.9] uppercase mb-4">
+      HEARTZ
+    </h1>
+<p class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#86868B] mb-8">
+      Ideas hechas realidad<span class="text-[#FF2E4D]">.</span>
+</p>
+<div class="w-full flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-[#E5E5EA]">
+<div class="flex items-center gap-6">
+<a class="inline-flex items-center gap-2 text-sm font-semibold text-[#1D1D1F] hover:text-[#FF2E4D] transition-colors group" href="#proyectos">
+<span>VER PROYECTOS</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="text-[#E5E5EA]">|</span>
+<span class="text-xs font-mono text-[#86868B] tracking-wider">TCR 00:01:24:00</span>
+</div>
+<div class="hidden lg:flex items-center gap-4 text-xs font-mono text-[#86868B]">
+<span>ALEXA MINI LF</span>
+<span>•</span>
+<span>ANAMORPHIC SCOPE 2.39:1</span>
+<span>•</span>
+<span>PARIS / MADRID</span>
+</div>
+</div>
+</div>
+<!-- Pristine Apple Hero Frame with Visual -->
+<div class="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#F5F5F7] border border-[#E5E5EA] shadow-xl group">
+<img alt="HEARTZ Studio Film Still" class="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida/AEtjO1VVG210yexF27HwypTdi5oQ71-bNDtKreZk4vEmqlaj_zEt_QbOmi8CsDGF1oJw_1JLy_tvhiOusLbvt72rRDUVGC5jQ40EPFBZfIR3SIS36xfbJHlR5aPUGh0DKxYOEtI-zO1TzK-Np7d8UiiyetiZkNFqT8rZk7zQrHZq58qcFUYQHpQntFGCqwZmwROZ4acfMr5voLAqIqxP3yL0j69Q_QOnZky0fqdvD0j_PoN4hXw3vbhXw7s-7Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-white flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-mono border border-white/25">CINEMA LAB 2025</span>
+<span class="text-sm font-medium tracking-tight text-white/90">Directorial Showreel / Master 4K</span>
+</div>
+</div>
+</section>
+<!-- ==================== 3. SELECTED PROJECTS ==================== -->
+<section class="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-[#E5E5EA]" id="proyectos">
+<!-- Section Intro -->
+<div class="flex items-baseline justify-between mb-12 md:mb-16">
+<div>
+<span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-1">01 / PROYECTOS SELECCIONADOS</span>
+<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+        Trabajos destacados
+      </h2>
+</div>
+<span class="text-xs font-mono tracking-widest text-[#86868B] uppercase hidden sm:block">
+      ARCHIVE 2024 — 2025
+    </span>
+</div>
+<!-- Apple-style Showcase Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+<!-- Project 1: Camila -->
+<div class="lg:col-span-7 group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] mb-4 transition-all duration-300 group-hover:shadow-lg">
+<img alt="Camila - Moda &amp; Campaña Editorial" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VVG210yexF27HwypTdi5oQ71-bNDtKreZk4vEmqlaj_zEt_QbOmi8CsDGF1oJw_1JLy_tvhiOusLbvt72rRDUVGC5jQ40EPFBZfIR3SIS36xfbJHlR5aPUGh0DKxYOEtI-zO1TzK-Np7d8UiiyetiZkNFqT8rZk7zQrHZq58qcFUYQHpQntFGCqwZmwROZ4acfMr5voLAqIqxP3yL0j69Q_QOnZky0fqdvD0j_PoN4hXw3vbhXw7s-7Q"/>
+<div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
+          00:45 · 4K SCOPE
+        </div>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="w-10 h-10 rounded-full bg-white text-[#1D1D1F] flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-base">arrow_outward</span>
+</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between px-1">
+<div>
+<h3 class="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-black">Camila</h3>
+<p class="text-xs text-[#86868B] font-medium tracking-wide mt-0.5">Moda &amp; Campaña Editorial</p>
+</div>
+<span class="text-xs font-mono text-[#86868B]">2025</span>
+</div>
+</div>
+<!-- Project 2: Hector Lazo -->
+<div class="lg:col-span-5 group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] mb-4 transition-all duration-300 group-hover:shadow-lg">
+<img alt="Hector Lazo - Streetwear Drop" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1Wea168Yaz5uynwfyQBzDa7hvhbQXO6lbBzY3XrLg31QOvkeA20-s8L9UiJrfxprSQTts-BJSpW9SVZjfQLC0ldeHn8Z9oE2RHfvuQErfFkpNc2BjYDxCKM3p4CnhQWuDo65gAR7vTDswAbb_Vuwy10MuUDl79Jcf57wHFoTRBVT7f8HWCm7UH0-FDOANG3zKjdU_rwSekLLxBvs6EqT3bBH-F1m-m7TvliTLAaE1S83dSJ4zoSJfaIPyM"/>
+<div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
+          DROP 01 · 9:16 VERTICAL
+        </div>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="w-10 h-10 rounded-full bg-white text-[#1D1D1F] flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-base">arrow_outward</span>
+</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between px-1">
+<div>
+<h3 class="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-black">Hector Lazo</h3>
+<p class="text-xs text-[#86868B] font-medium tracking-wide mt-0.5">Apparel &amp; Street Film</p>
+</div>
+<span class="text-xs font-mono text-[#86868B]">2025</span>
+</div>
+</div>
+<!-- Project 3: Chis Dental -->
+<div class="lg:col-span-5 group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] mb-4 transition-all duration-300 group-hover:shadow-lg">
+<img alt="Chis Dental - Aesthetic Healthcare &amp; Lifestyle" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XAKPg1wNZWWduXe_t4qGEho460ybEAsGqwwqTMULgBKJLDeUUfud7_Nl9sxhNctRz2ush5GrbxW7wQhsjvdcL7iWJYmAPZ_t11awhSfyfiaIeCTNQfJtvQIsIY98fgTeGhjB8H7GF13hGFgPaTrzqYuD_f9enlv2KxzOfcWSpwxMJJeLbpkB2UKVr8-dbylyROS2n5pMR3jSJ0r41sTpEpXgTnKNykDgaKzYcGSVP494JK737xU4-QX0c"/>
+<div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
+          SERIE · BRAND FILM
+        </div>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="w-10 h-10 rounded-full bg-white text-[#1D1D1F] flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-base">arrow_outward</span>
+</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between px-1">
+<div>
+<h3 class="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-black">Chis Dental</h3>
+<p class="text-xs text-[#86868B] font-medium tracking-wide mt-0.5">Aesthetic Healthcare &amp; Lifestyle</p>
+</div>
+<span class="text-xs font-mono text-[#86868B]">2024</span>
+</div>
+</div>
+<!-- Project 4: Set de Rodaje -->
+<div class="lg:col-span-7 group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden rounded-2xl sm:rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] mb-4 transition-all duration-300 group-hover:shadow-lg">
+<img alt="Set de Rodaje - Behind the Scenes" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WXMsrE1vRePx1353e250PJBTTIpcrMGcg9yP7YUKUh75HjGXm66Y3-TVyhwQ5RZlPeWmkcA45uerEWf2ustEZqlaxqs-0AcIELDjPsa9InWfLWTJYxrzC29_YNZ6pG35Osnv-H-U5mRiSaZaqkjWJrBc3PoQMzb0WXUb4GPVUAeesbD_GToafeIvlNUdxpGM-GGO7UBIbe1ISsdiq1DtT23bcyPdlC0noSu_Z4zXXCWjhNc2nrp0ciPg"/>
+<div class="absolute top-4 left-4 font-mono text-[11px] bg-white/80 backdrop-blur-md px-3 py-1 text-[#1D1D1F] rounded-full border border-[#E5E5EA] shadow-sm">
+          BTS · STEADICAM &amp; RIGGING
+        </div>
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="w-10 h-10 rounded-full bg-white text-[#1D1D1F] flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-base">arrow_outward</span>
+</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between px-1">
+<div>
+<h3 class="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-black">Set de Rodaje</h3>
+<p class="text-xs text-[#86868B] font-medium tracking-wide mt-0.5">Producción Integral &amp; Dirección</p>
+</div>
+<span class="text-xs font-mono text-[#86868B]">MAKING OF</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 4. SERVICIOS ==================== -->
+<section class="py-20 md:py-28 bg-[#FBFBFD] border-t border-[#E5E5EA]" id="servicios"><div class="max-w-[1440px] mx-auto px-6 md:px-12"><div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 md:mb-12"><div class="max-w-xl"><span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-2">02 / CAPACIDADES DEL ESTUDIO</span><h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">Servicios de Producción</h2><p class="text-[#86868B] text-sm md:text-base mt-2 leading-relaxed">Formatos cinematográficos y estrategias de contenido diseñadas con precisión visual de autor.</p></div><div class="flex items-center gap-3 mt-6 sm:mt-0"><button aria-label="Anterior" class="w-10 h-10 rounded-full border border-[#E5E5EA] bg-white hover:bg-[#F5F5F7] flex items-center justify-center text-[#1D1D1F] transition-all duration-200 shadow-sm active:scale-95" onclick="document.getElementById('services-carousel').scrollBy({left: -400, behavior: 'smooth'})"><span class="material-symbols-outlined text-sm">arrow_back</span></button><button aria-label="Siguiente" class="w-10 h-10 rounded-full border border-[#E5E5EA] bg-white hover:bg-[#F5F5F7] flex items-center justify-center text-[#1D1D1F] transition-all duration-200 shadow-sm active:scale-95" onclick="document.getElementById('services-carousel').scrollBy({left: 400, behavior: 'smooth'})"><span class="material-symbols-outlined text-sm">arrow_forward</span></button></div></div><div class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory" id="services-carousel" style="scrollbar-width: none; -ms-overflow-style: none;"><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Producción Audiovisual High-End" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VVG210yexF27HwypTdi5oQ71-bNDtKreZk4vEmqlaj_zEt_QbOmi8CsDGF1oJw_1JLy_tvhiOusLbvt72rRDUVGC5jQ40EPFBZfIR3SIS36xfbJHlR5aPUGh0DKxYOEtI-zO1TzK-Np7d8UiiyetiZkNFqT8rZk7zQrHZq58qcFUYQHpQntFGCqwZmwROZ4acfMr5voLAqIqxP3yL0j69Q_QOnZky0fqdvD0j_PoN4hXw3vbhXw7s-7Q"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">FILM · 4K SCOPE</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">01 // BRAND CINEMA</span><h3 class="text-xl font-bold tracking-tight">Spots &amp; Commercials</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Piezas narrativas con iluminación dramática, ópticas anamórficas y postproducción de estándar cinematográfico.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">ANAMÓRFICO</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">COLOR GRADING</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">DIRECCIÓN DE ARTE</span></div></div></div><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Creación de Contenido Urbano &amp; Moda" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1Wea168Yaz5uynwfyQBzDa7hvhbQXO6lbBzY3XrLg31QOvkeA20-s8L9UiJrfxprSQTts-BJSpW9SVZjfQLC0ldeHn8Z9oE2RHfvuQErfFkpNc2BjYDxCKM3p4CnhQWuDo65gAR7vTDswAbb_Vuwy10MuUDl79Jcf57wHFoTRBVT7f8HWCm7UH0-FDOANG3zKjdU_rwSekLLxBvs6EqT3bBH-F1m-m7TvliTLAaE1S83dSJ4zoSJfaIPyM"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">VERTICAL · 9:16</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">02 // CREATIVE SOCIAL</span><h3 class="text-xl font-bold tracking-tight">Contenido Editorial &amp; Drops</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Innovación visual ágil orientada a marcas de moda, lifestyle y drops con cadencia mensual de alto impacto.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">REELS &amp; TIKTOK</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">STREETWEAR</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">FEED STRATEGY</span></div></div></div><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Campañas Lifestyle y Brand Films" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XAKPg1wNZWWduXe_t4qGEho460ybEAsGqwwqTMULgBKJLDeUUfud7_Nl9sxhNctRz2ush5GrbxW7wQhsjvdcL7iWJYmAPZ_t11awhSfyfiaIeCTNQfJtvQIsIY98fgTeGhjB8H7GF13hGFgPaTrzqYuD_f9enlv2KxzOfcWSpwxMJJeLbpkB2UKVr8-dbylyROS2n5pMR3jSJ0r41sTpEpXgTnKNykDgaKzYcGSVP494JK737xU4-QX0c"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">LIFESTYLE &amp; HEALTH</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">03 // AESTHETIC DOCS</span><h3 class="text-xl font-bold tracking-tight">Campaña &amp; Wellness</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Fotografía viva y motion film para firmas que exigen elegancia sobria, limpieza arquitectónica y cercanía natural.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">BRAND IDENTITY</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">LUMIX &amp; ARRI</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">EDITORIAL LOOK</span></div></div></div><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Set de Producción y Rigging Técnico" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WXMsrE1vRePx1353e250PJBTTIpcrMGcg9yP7YUKUh75HjGXm66Y3-TVyhwQ5RZlPeWmkcA45uerEWf2ustEZqlaxqs-0AcIELDjPsa9InWfLWTJYxrzC29_YNZ6pG35Osnv-H-U5mRiSaZaqkjWJrBc3PoQMzb0WXUb4GPVUAeesbD_GToafeIvlNUdxpGM-GGO7UBIbe1ISsdiq1DtT23bcyPdlC0noSu_Z4zXXCWjhNc2nrp0ciPg"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">FULL PRODUCTION</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">04 // BTS &amp; DIRECCIÓN</span><h3 class="text-xl font-bold tracking-tight">Set Integral &amp; Rigging</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Operación técnica de gimbals, steadicam, monitoreo wireless y equipo humano para sets cinematográficos completos.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">STEADICAM</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">LIGHTING RIGS</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">POST AUDIO &amp; COLOR</span></div></div></div></div></div></section>
+<!-- ==================== 5. PROCESO ==================== -->
+<section class="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-[#E5E5EA]" id="proceso">
+<div class="flex items-baseline justify-between mb-14">
+<div>
+<span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-1">03 / MÉTODO DE TRABAJO</span>
+<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+        Proceso
+      </h2>
+</div>
+<span class="text-xs font-mono tracking-widest text-[#86868B] uppercase hidden sm:block">
+      PASO A PASO
+    </span>
+</div>
+<!-- Apple Linear Step Flow -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"><div class="border-t border-[#1D1D1F] pt-6 flex flex-col justify-between h-full"><div class="flex items-center justify-between mb-4"><span class="text-xs font-mono text-[#86868B]">FASE 01</span><div class="w-9 h-9 rounded-full bg-[#F5F5F7] border border-[#E5E5EA] flex items-center justify-center text-[#1D1D1F]"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div><h4 class="text-xl font-bold text-[#1D1D1F] tracking-tight mb-1.5">Briefing</h4><p class="text-sm text-[#86868B] leading-normal">Conceptualización, referencias visuales y tono cinematográfico.</p></div></div><div class="border-t border-[#1D1D1F] pt-6 flex flex-col justify-between h-full"><div class="flex items-center justify-between mb-4"><span class="text-xs font-mono text-[#86868B]">FASE 02</span><div class="w-9 h-9 rounded-full bg-[#F5F5F7] border border-[#E5E5EA] flex items-center justify-center text-[#1D1D1F]"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div><h4 class="text-xl font-bold text-[#1D1D1F] tracking-tight mb-1.5">Planificación</h4><p class="text-sm text-[#86868B] leading-normal">Guion técnico, desglose de planos y scouting de localizaciones.</p></div></div><div class="border-t border-[#1D1D1F] pt-6 flex flex-col justify-between h-full"><div class="flex items-center justify-between mb-4"><span class="text-xs font-mono text-[#86868B]">FASE 03</span><div class="w-9 h-9 rounded-full bg-[#F5F5F7] border border-[#E5E5EA] flex items-center justify-center text-[#1D1D1F]"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div><h4 class="text-xl font-bold text-[#1D1D1F] tracking-tight mb-1.5">Rodaje</h4><p class="text-sm text-[#86868B] leading-normal">Dirección de actores, set de cámara y rigor lumínico.</p></div></div><div class="border-t border-[#1D1D1F] pt-6 flex flex-col justify-between h-full"><div class="flex items-center justify-between mb-4"><span class="text-xs font-mono text-[#86868B]">FASE 04</span><div class="w-9 h-9 rounded-full bg-[#F5F5F7] border border-[#E5E5EA] flex items-center justify-center text-[#1D1D1F]"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div><h4 class="text-xl font-bold text-[#1D1D1F] tracking-tight mb-1.5">Postproducción</h4><p class="text-sm text-[#86868B] leading-normal">Montaje de ritmo, corrección de color y entrega en master 4K.</p></div></div></div>
+<!-- Big Minimal Apple Banner -->
+<div class="p-8 sm:p-12 md:p-14 bg-[#FBFBFD] rounded-3xl border border-[#E5E5EA] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8"><div class="max-w-xl"><div class="flex items-center gap-2 mb-3"><span class="w-1.5 h-1.5 rounded-full bg-[#FF2E4D]"></span><span class="text-xs font-mono text-[#86868B] uppercase tracking-wider">NUEVAS PRODUCCIONES · 2025</span></div><h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-tight mb-2">Iniciemos una conversación sobre tu visión.</h3><p class="text-sm sm:text-base text-[#86868B] font-normal leading-relaxed">Cuéntanos sobre tu próximo proyecto comercial, videoclip o campaña editorial. Analizamos timing, presupuesto y enfoque visual sin compromiso.</p></div><div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0"><a class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1D1D1F] text-white hover:bg-black text-sm font-semibold rounded-full shadow-sm hover:shadow active:scale-95 transition-all duration-200 group" href="#contacto"><span>Escríbenos</span><span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span></a><a class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-[#E5E5EA] text-[#1D1D1F] hover:bg-[#F5F5F7] text-sm font-semibold rounded-full transition-all duration-200 shadow-sm" href="mailto:hola@heartzstudio.com"><span>Agendar llamada</span></a></div></div>
+</section>
+<!-- ==================== 6. CONTACTO ==================== -->
+<section class="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-[#E5E5EA]" id="contacto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<div class="lg:col-span-6">
+<span class="text-xs font-mono text-[#86868B] uppercase tracking-wider block mb-3">CONTACTO DIRECTO</span>
+<h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-tight mb-6">
+        ¿Tienes una idea?<br/>Escríbenos.
+      </h2>
+<p class="text-base text-[#86868B] max-w-md leading-relaxed">
+        Disponible para producciones comerciales, activaciones de marca y proyectos de autor.
+      </p>
+</div>
+<!-- Apple-style Quick Connect Channel Cards -->
+<div class="lg:col-span-6 flex flex-col gap-3.5">
+<!-- Email -->
+<a class="flex items-center justify-between p-6 bg-white hover:bg-[#F5F5F7] text-[#1D1D1F] rounded-2xl border border-[#E5E5EA] transition-all duration-200 group shadow-sm hover:shadow" href="mailto:hola@heartzstudio.com">
+<span class="text-xs font-mono uppercase tracking-wider text-[#86868B]">EMAIL DIRECTO</span>
+<div class="flex items-center gap-3">
+<span class="text-base sm:text-lg font-medium text-[#1D1D1F]">hola@heartzstudio.com</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</a>
+<!-- Instagram -->
+<a class="flex items-center justify-between p-6 bg-white hover:bg-[#F5F5F7] text-[#1D1D1F] rounded-2xl border border-[#E5E5EA] transition-all duration-200 group shadow-sm hover:shadow" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+<span class="text-xs font-mono uppercase tracking-wider text-[#86868B]">INSTAGRAM</span>
+<div class="flex items-center gap-3">
+<span class="text-base sm:text-lg font-medium text-[#1D1D1F]">@heartz.films</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</a>
+<!-- WhatsApp -->
+<a class="flex items-center justify-between p-6 bg-white hover:bg-[#F5F5F7] text-[#1D1D1F] rounded-2xl border border-[#E5E5EA] transition-all duration-200 group shadow-sm hover:shadow" href="https://whatsapp.com" rel="noopener noreferrer" target="_blank">
+<span class="text-xs font-mono uppercase tracking-wider text-[#86868B]">WHATSAPP</span>
+<div class="flex items-center gap-3">
+<span class="text-base sm:text-lg font-medium text-[#1D1D1F]">+34 Direct Chat</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- ==================== 7. MINIMAL FOOTER ==================== -->
+<footer class="border-t border-[#E5E5EA] bg-[#FBFBFD] py-12 px-6 md:px-12">
+<div class="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#86868B]">
+<div class="flex items-center gap-2.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF2E4D]"></span>
+<span class="font-semibold text-[#1D1D1F]">HEARTZ STUDIO</span>
+<span>•</span>
+<span>© 2025 TODOS LOS DERECHOS RESERVADOS</span>
+</div>
+<div class="flex items-center gap-6 font-mono text-[11px] text-[#86868B]">
+<span>MADRID · CIUDAD DE MÉXICO</span>
+<span>24FPS CINEMA LAB</span>
+</div>
+</div>
+</footer>
+</body></html>
