@@ -8,17 +8,121 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
-    @layer base {
-      html, body { margin: 0; padding: 0; }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background-color: #FFFFFF;
-        color: #1D1D1F;
-      }
+  @layer base {
+    html, body {
+      margin: 0;
+      padding: 0;
     }
-    ::-webkit-scrollbar { display: none; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #FFFFFF;
+      color: #1D1D1F;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  #services-carousel {
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+  }
+
+  #services-carousel.dragging {
+    cursor: grabbing;
+  }
+
+  .services-track {
+    display: flex;
+    width: max-content;
+    gap: 24px;
+    will-change: transform;
+  }
+
+  .services-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9999px;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #E5E5EA;
+
+    color: #1D1D1F;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .services-arrow:hover {
+    background: #1D1D1F;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .services-arrow:active {
+    transform: translateY(-50%) scale(0.94);
+  }
+
+  .services-arrow.left {
+    left: 18px;
+  }
+
+  .services-arrow.right {
+    right: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .services-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .services-arrow.left {
+      left: 10px;
+    }
+
+    .services-arrow.right {
+      right: 10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .services-track {
+      transform: none !important;
+    }
+  }
+
+</style>
+
+
+
+
   </style>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -43,6 +147,10 @@
     };
   </script>
 </head>
+
+
+
+
 <body class="bg-white text-[#1D1D1F] selection:bg-[#1D1D1F] selection:text-white antialiased">
 <!-- ==================== 1. MINIMAL APPLE HEADER ==================== -->
 <header class="sticky top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#E5E5EA]/70 transition-all duration-300">
@@ -70,10 +178,7 @@
 </nav>
 <!-- Live REC Tag & CTA -->
 <div class="flex items-center gap-4">
-<div class="hidden sm:flex items-center gap-2 text-[11px] font-mono tracking-tight text-[#86868B] bg-[#F5F5F7] px-3 py-1 rounded-full border border-[#E5E5EA]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#FF2E4D] animate-pulse"></span>
-<span>REC 24FPS</span>
-</div>
+
 <a class="text-xs font-medium px-5 py-2 bg-[#1D1D1F] text-white hover:bg-black transition-all duration-200 rounded-full shadow-sm hover:shadow active:scale-95" href="#contacto">
           Hablemos
         </a>
@@ -85,7 +190,7 @@
 <div class="flex flex-col items-start mb-12">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F5F7] border border-[#E5E5EA] text-[#86868B] font-mono text-[11px] tracking-wider uppercase mb-6">
 <span class="w-1.5 h-1.5 rounded-full bg-[#FF2E4D]"></span>
-<span>STUDIO &amp; BOUTIQUE FILM PRODUCTION</span>
+<span>LIMA - PERÚ</span>
 </div>
 <h1 class="text-6xl sm:text-7xl lg:text-[104px] font-bold text-[#1D1D1F] tracking-[-0.035em] leading-[0.9] uppercase mb-4">
       HEARTZ
@@ -102,13 +207,7 @@
 <span class="text-[#E5E5EA]">|</span>
 <span class="text-xs font-mono text-[#86868B] tracking-wider">TCR 00:01:24:00</span>
 </div>
-<div class="hidden lg:flex items-center gap-4 text-xs font-mono text-[#86868B]">
-<span>ALEXA MINI LF</span>
-<span>•</span>
-<span>ANAMORPHIC SCOPE 2.39:1</span>
-<span>•</span>
-<span>PARIS / MADRID</span>
-</div>
+<div class="hidden lg:flex items-center gap-4 text-xs font-mono text-[#86868B]"></div>
 </div>
 </div>
 <!-- Pristine Apple Hero Frame with Visual -->
@@ -224,7 +323,370 @@
 </div>
 </section>
 <!-- ==================== 4. SERVICIOS ==================== -->
-<section class="py-20 md:py-28 bg-[#FBFBFD] border-t border-[#E5E5EA]" id="servicios"><div class="max-w-[1440px] mx-auto px-6 md:px-12"><div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 md:mb-12"><div class="max-w-xl"><span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-2">02 / CAPACIDADES DEL ESTUDIO</span><h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">Servicios de Producción</h2><p class="text-[#86868B] text-sm md:text-base mt-2 leading-relaxed">Formatos cinematográficos y estrategias de contenido diseñadas con precisión visual de autor.</p></div><div class="flex items-center gap-3 mt-6 sm:mt-0"><button aria-label="Anterior" class="w-10 h-10 rounded-full border border-[#E5E5EA] bg-white hover:bg-[#F5F5F7] flex items-center justify-center text-[#1D1D1F] transition-all duration-200 shadow-sm active:scale-95" onclick="document.getElementById('services-carousel').scrollBy({left: -400, behavior: 'smooth'})"><span class="material-symbols-outlined text-sm">arrow_back</span></button><button aria-label="Siguiente" class="w-10 h-10 rounded-full border border-[#E5E5EA] bg-white hover:bg-[#F5F5F7] flex items-center justify-center text-[#1D1D1F] transition-all duration-200 shadow-sm active:scale-95" onclick="document.getElementById('services-carousel').scrollBy({left: 400, behavior: 'smooth'})"><span class="material-symbols-outlined text-sm">arrow_forward</span></button></div></div><div class="flex gap-6 overflow-x-auto pb-6 scroll-smooth snap-x snap-mandatory" id="services-carousel" style="scrollbar-width: none; -ms-overflow-style: none;"><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Producción Audiovisual High-End" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VVG210yexF27HwypTdi5oQ71-bNDtKreZk4vEmqlaj_zEt_QbOmi8CsDGF1oJw_1JLy_tvhiOusLbvt72rRDUVGC5jQ40EPFBZfIR3SIS36xfbJHlR5aPUGh0DKxYOEtI-zO1TzK-Np7d8UiiyetiZkNFqT8rZk7zQrHZq58qcFUYQHpQntFGCqwZmwROZ4acfMr5voLAqIqxP3yL0j69Q_QOnZky0fqdvD0j_PoN4hXw3vbhXw7s-7Q"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">FILM · 4K SCOPE</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">01 // BRAND CINEMA</span><h3 class="text-xl font-bold tracking-tight">Spots &amp; Commercials</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Piezas narrativas con iluminación dramática, ópticas anamórficas y postproducción de estándar cinematográfico.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">ANAMÓRFICO</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">COLOR GRADING</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">DIRECCIÓN DE ARTE</span></div></div></div><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Creación de Contenido Urbano &amp; Moda" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1Wea168Yaz5uynwfyQBzDa7hvhbQXO6lbBzY3XrLg31QOvkeA20-s8L9UiJrfxprSQTts-BJSpW9SVZjfQLC0ldeHn8Z9oE2RHfvuQErfFkpNc2BjYDxCKM3p4CnhQWuDo65gAR7vTDswAbb_Vuwy10MuUDl79Jcf57wHFoTRBVT7f8HWCm7UH0-FDOANG3zKjdU_rwSekLLxBvs6EqT3bBH-F1m-m7TvliTLAaE1S83dSJ4zoSJfaIPyM"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">VERTICAL · 9:16</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">02 // CREATIVE SOCIAL</span><h3 class="text-xl font-bold tracking-tight">Contenido Editorial &amp; Drops</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Innovación visual ágil orientada a marcas de moda, lifestyle y drops con cadencia mensual de alto impacto.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">REELS &amp; TIKTOK</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">STREETWEAR</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">FEED STRATEGY</span></div></div></div><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Campañas Lifestyle y Brand Films" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XAKPg1wNZWWduXe_t4qGEho460ybEAsGqwwqTMULgBKJLDeUUfud7_Nl9sxhNctRz2ush5GrbxW7wQhsjvdcL7iWJYmAPZ_t11awhSfyfiaIeCTNQfJtvQIsIY98fgTeGhjB8H7GF13hGFgPaTrzqYuD_f9enlv2KxzOfcWSpwxMJJeLbpkB2UKVr8-dbylyROS2n5pMR3jSJ0r41sTpEpXgTnKNykDgaKzYcGSVP494JK737xU4-QX0c"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">LIFESTYLE &amp; HEALTH</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">03 // AESTHETIC DOCS</span><h3 class="text-xl font-bold tracking-tight">Campaña &amp; Wellness</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Fotografía viva y motion film para firmas que exigen elegancia sobria, limpieza arquitectónica y cercanía natural.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">BRAND IDENTITY</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">LUMIX &amp; ARRI</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">EDITORIAL LOOK</span></div></div></div><div class="snap-start shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px] rounded-3xl overflow-hidden bg-white border border-[#E5E5EA] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col"><div class="relative aspect-[16/11] overflow-hidden bg-[#F5F5F7]"><img alt="Set de Producción y Rigging Técnico" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WXMsrE1vRePx1353e250PJBTTIpcrMGcg9yP7YUKUh75HjGXm66Y3-TVyhwQ5RZlPeWmkcA45uerEWf2ustEZqlaxqs-0AcIELDjPsa9InWfLWTJYxrzC29_YNZ6pG35Osnv-H-U5mRiSaZaqkjWJrBc3PoQMzb0WXUb4GPVUAeesbD_GToafeIvlNUdxpGM-GGO7UBIbe1ISsdiq1DtT23bcyPdlC0noSu_Z4zXXCWjhNc2nrp0ciPg"/><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div><div class="absolute top-4 left-4 flex gap-2"><span class="px-3 py-1 rounded-full bg-white/80 backdrop-blur-md text-[11px] font-mono text-[#1D1D1F] border border-white/40 shadow-sm">FULL PRODUCTION</span></div><div class="absolute bottom-4 left-4 right-4 text-white"><span class="text-[11px] font-mono uppercase tracking-wider text-white/80 block mb-0.5">04 // BTS &amp; DIRECCIÓN</span><h3 class="text-xl font-bold tracking-tight">Set Integral &amp; Rigging</h3></div></div><div class="p-6 md:p-8 flex flex-col justify-between flex-1"><p class="text-sm text-[#86868B] leading-relaxed mb-6 font-normal">Operación técnica de gimbals, steadicam, monitoreo wireless y equipo humano para sets cinematográficos completos.</p><div class="flex flex-wrap gap-2 pt-4 border-t border-[#E5E5EA] font-mono text-[11px] text-[#1D1D1F]"><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">STEADICAM</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">LIGHTING RIGS</span><span class="px-3 py-1 bg-[#F5F5F7] rounded-full border border-[#E5E5EA]">POST AUDIO &amp; COLOR</span></div></div></div></div></div></section>
+<!-- ==================== 4. SERVICIOS ==================== -->
+<section
+  class="py-20 md:py-28 border-t border-[#E5E5EA] overflow-hidden"
+  id="servicios"
+>
+
+  <!-- Título -->
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 mb-12 md:mb-16">
+    <div class="flex items-baseline justify-between">
+      <div>
+        <span class="text-xs font-mono text-[#86868B] tracking-wider uppercase block mb-1">
+          02 / SERVICIOS
+        </span>
+
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+          Lo que hacemos
+        </h2>
+      </div>
+
+      <span class="text-xs font-mono tracking-widest text-[#86868B] uppercase hidden sm:block">
+        PRODUCCIÓN · CONTENIDO · FILMS
+      </span>
+    </div>
+  </div>
+
+
+  <!-- CARRUSEL -->
+<div id="services-carousel">
+
+  <!-- Flecha izquierda -->
+  <button
+    id="services-prev"
+    class="services-arrow left"
+    aria-label="Servicio anterior"
+  >
+    <span class="material-symbols-outlined">
+      arrow_back
+    </span>
+  </button>
+
+  <!-- Flecha derecha -->
+  <button
+    id="services-next"
+    class="services-arrow right"
+    aria-label="Siguiente servicio"
+  >
+    <span class="material-symbols-outlined">
+      arrow_forward
+    </span>
+  </button>
+
+  <div class="services-track pb-6">
+
+      <!-- ================= TARJETA 1 ================= -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-[#86868B]">
+                01
+              </span>
+
+              <span class="text-xs font-mono text-[#86868B]">
+                CONTENT
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+              Creación de contenido
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
+              Contenido visual para marcas que buscan constancia,
+              creatividad y una identidad propia.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-[#E5E5EA] mb-5"></div>
+
+            <p class="text-xs font-mono text-[#86868B]">
+              REELS · FOTOGRAFÍA · SOCIAL MEDIA
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= TARJETA 2 ================= -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#1D1D1F] border border-[#1D1D1F] p-7 sm:p-9 flex flex-col justify-between text-white">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-white/50">
+                02
+              </span>
+
+              <span class="text-xs font-mono text-white/50">
+                FILM
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+              Producción audiovisual
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-white/60 leading-relaxed max-w-sm">
+              Desarrollamos producciones audiovisuales desde la idea
+              hasta la entrega final.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-white/15 mb-5"></div>
+
+            <p class="text-xs font-mono text-white/50">
+              SPOTS · CAMPAÑAS · INSTITUCIONALES
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= TARJETA 3 ================= -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-[#86868B]">
+                03
+              </span>
+
+              <span class="text-xs font-mono text-[#86868B]">
+                MUSIC
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+              Videoclips
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
+              Concepto, dirección y producción visual para artistas
+              y proyectos musicales.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-[#E5E5EA] mb-5"></div>
+
+            <p class="text-xs font-mono text-[#86868B]">
+              CONCEPTO · DIRECCIÓN · VIDEO
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= TARJETA 4 ================= -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-[#86868B]">
+                04
+              </span>
+
+              <span class="text-xs font-mono text-[#86868B]">
+                PRODUCTION
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+              Producción integral
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
+              Nos encargamos de convertir una idea en una producción
+              visual completa.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-[#E5E5EA] mb-5"></div>
+
+            <p class="text-xs font-mono text-[#86868B]">
+              PREPRODUCCIÓN · RODAJE · POST
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================================================= -->
+      <!-- DUPLICADO: NECESARIO PARA EL LOOP INFINITO -->
+      <!-- ================================================= -->
+
+      <!-- TARJETA 1 DUPLICADA -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-[#86868B]">
+                01
+              </span>
+
+              <span class="text-xs font-mono text-[#86868B]">
+                CONTENT
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+              Creación de contenido
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
+              Contenido visual para marcas que buscan constancia,
+              creatividad y una identidad propia.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-[#E5E5EA] mb-5"></div>
+
+            <p class="text-xs font-mono text-[#86868B]">
+              REELS · FOTOGRAFÍA · SOCIAL MEDIA
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- TARJETA 2 DUPLICADA -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#1D1D1F] border border-[#1D1D1F] p-7 sm:p-9 flex flex-col justify-between text-white">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-white/50">
+                02
+              </span>
+
+              <span class="text-xs font-mono text-white/50">
+                FILM
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+              Producción audiovisual
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-white/60 leading-relaxed max-w-sm">
+              Desarrollamos producciones audiovisuales desde la idea
+              hasta la entrega final.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-white/15 mb-5"></div>
+
+            <p class="text-xs font-mono text-white/50">
+              SPOTS · CAMPAÑAS · INSTITUCIONALES
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- TARJETA 3 DUPLICADA -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-[#86868B]">
+                03
+              </span>
+
+              <span class="text-xs font-mono text-[#86868B]">
+                MUSIC
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+              Videoclips
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
+              Concepto, dirección y producción visual para artistas
+              y proyectos musicales.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-[#E5E5EA] mb-5"></div>
+
+            <p class="text-xs font-mono text-[#86868B]">
+              CONCEPTO · DIRECCIÓN · VIDEO
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- TARJETA 4 DUPLICADA -->
+      <div class="shrink-0 w-[85vw] sm:w-[420px] lg:w-[460px]">
+
+        <div class="h-[420px] sm:h-[460px] rounded-3xl bg-[#F5F5F7] border border-[#E5E5EA] p-7 sm:p-9 flex flex-col justify-between">
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <span class="text-xs font-mono text-[#86868B]">
+                04
+              </span>
+
+              <span class="text-xs font-mono text-[#86868B]">
+                PRODUCTION
+              </span>
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+              Producción integral
+            </h3>
+
+            <p class="mt-4 text-sm sm:text-base text-[#86868B] leading-relaxed max-w-sm">
+              Nos encargamos de convertir una idea en una producción
+              visual completa.
+            </p>
+          </div>
+
+          <div>
+            <div class="h-px bg-[#E5E5EA] mb-5"></div>
+
+            <p class="text-xs font-mono text-[#86868B]">
+              PREPRODUCCIÓN · RODAJE · POST
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 <!-- ==================== 5. PROCESO ==================== -->
 <section class="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-[#E5E5EA]" id="proceso">
 <div class="flex items-baseline justify-between mb-14">
@@ -299,4 +761,360 @@
 </div>
 </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const carousel = document.getElementById("services-carousel");
+  const track = carousel.querySelector(".services-track");
+
+  const prevButton = document.getElementById("services-prev");
+  const nextButton = document.getElementById("services-next");
+
+  if (!carousel || !track) return;
+
+  /*
+  ============================================================
+  CONFIGURACIÓN
+  ============================================================
+  */
+
+  const AUTO_SPEED = 0.12;
+  const RESUME_DELAY = 3000;
+
+  let position = 0;
+  let lastTime = performance.now();
+
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartPosition = 0;
+
+  let resumeTimer = null;
+
+
+  /*
+  ============================================================
+  MEDIDAS
+  ============================================================
+  */
+
+  function getCardWidth() {
+
+    const card = track.children[0];
+
+    if (!card) return 0;
+
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 0;
+
+    return card.getBoundingClientRect().width + gap;
+  }
+
+
+ function getLoopWidth() {
+  if (track.children.length < 5) return 0;
+
+  return (
+    track.children[4].offsetLeft -
+    track.children[0].offsetLeft
+  );
+}
+
+
+  /*
+  ============================================================
+  LOOP INFINITO
+  ============================================================
+  */
+
+  function normalizePosition() {
+
+    const loopWidth = getLoopWidth();
+
+    if (!loopWidth) return;
+
+    while (position <= -loopWidth) {
+      position += loopWidth;
+    }
+
+    while (position > 0) {
+      position -= loopWidth;
+    }
+  }
+
+
+  /*
+  ============================================================
+  RENDER
+  ============================================================
+  */
+
+  function render() {
+
+    normalizePosition();
+
+    track.style.transform =
+      `translate3d(${position}px, 0, 0)`;
+  }
+
+
+  /*
+  ============================================================
+  AUTO MOVIMIENTO
+  ============================================================
+  */
+
+  function animate(time) {
+
+    const delta = time - lastTime;
+    lastTime = time;
+
+    if (!isDragging) {
+
+      /*
+        Normalizamos el delta para evitar saltos
+        si la pestaña estuvo inactiva.
+      */
+
+      const movement =
+        Math.min(delta, 32) * AUTO_SPEED;
+
+      position -= movement;
+
+      render();
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+
+
+  /*
+  ============================================================
+  PAUSAR / REANUDAR
+  ============================================================
+  */
+
+  function pauseAuto() {
+
+    clearTimeout(resumeTimer);
+  }
+
+
+  function resumeAutoLater() {
+
+    clearTimeout(resumeTimer);
+
+    resumeTimer = setTimeout(() => {
+
+      isDragging = false;
+
+    }, RESUME_DELAY);
+  }
+
+
+  /*
+  ============================================================
+  FLECHAS
+  ============================================================
+  */
+
+  function moveOneCard(direction) {
+
+    const amount = getCardWidth();
+
+    if (!amount) return;
+
+    pauseAuto();
+
+    position += direction * amount;
+
+    render();
+
+    resumeAutoLater();
+  }
+
+
+  nextButton.addEventListener("click", () => {
+
+    moveOneCard(-1);
+
+  });
+
+
+  prevButton.addEventListener("click", () => {
+
+    moveOneCard(1);
+
+  });
+
+
+  /*
+  ============================================================
+  DRAG CON MOUSE
+  ============================================================
+  */
+
+  carousel.addEventListener("mousedown", (event) => {
+
+    isDragging = true;
+
+    carousel.classList.add("dragging");
+
+    dragStartX = event.clientX;
+
+    dragStartPosition = position;
+
+    pauseAuto();
+
+  });
+
+
+  window.addEventListener("mousemove", (event) => {
+
+    if (!isDragging) return;
+
+    const distance =
+      event.clientX - dragStartX;
+
+    position =
+      dragStartPosition + distance;
+
+    render();
+
+  });
+
+
+  window.addEventListener("mouseup", () => {
+
+    if (!isDragging) return;
+
+    isDragging = false;
+
+    carousel.classList.remove("dragging");
+
+    /*
+      Alineamos al siguiente servicio.
+    */
+
+    const cardWidth = getCardWidth();
+
+    if (cardWidth) {
+
+      position =
+        Math.round(position / cardWidth) *
+        cardWidth;
+
+      render();
+
+    }
+
+    resumeAutoLater();
+
+  });
+
+
+  /*
+  ============================================================
+  TOUCH / MOBILE
+  ============================================================
+  */
+
+  carousel.addEventListener(
+    "touchstart",
+    (event) => {
+
+      isDragging = true;
+
+      dragStartX =
+        event.touches[0].clientX;
+
+      dragStartPosition =
+        position;
+
+      pauseAuto();
+
+    },
+    { passive: true }
+  );
+
+
+  carousel.addEventListener(
+    "touchmove",
+    (event) => {
+
+      if (!isDragging) return;
+
+      const currentX =
+        event.touches[0].clientX;
+
+      const distance =
+        currentX - dragStartX;
+
+      position =
+        dragStartPosition + distance;
+
+      render();
+
+    },
+    { passive: true }
+  );
+
+
+  carousel.addEventListener(
+    "touchend",
+    () => {
+
+      if (!isDragging) return;
+
+      isDragging = false;
+
+      const cardWidth =
+        getCardWidth();
+
+      if (cardWidth) {
+
+        position =
+          Math.round(position / cardWidth) *
+          cardWidth;
+
+        render();
+
+      }
+
+      resumeAutoLater();
+
+    }
+  );
+
+
+  /*
+  ============================================================
+  EVITAR ARRASTRE DE IMÁGENES / SELECCIÓN
+  ============================================================
+  */
+
+  carousel.addEventListener("dragstart", (event) => {
+
+    event.preventDefault();
+
+  });
+
+
+  /*
+  ============================================================
+  RESIZE
+  ============================================================
+  */
+
+  window.addEventListener("resize", () => {
+
+    render();
+
+  });
+
+});
+</script>
+
 </body></html>
